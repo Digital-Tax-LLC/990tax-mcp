@@ -1,0 +1,6 @@
+{
+  "mcpServers": {
+    "990tax": { "type": "http", "url": "https://990.tax/mcp" },
+    "990tax-filing": { "type": "http", "url": "https://app.990.tax/mcp" }
+  }
+}

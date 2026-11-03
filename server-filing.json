@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "tax.990/990n-filing",
+  "title": "990.tax Form 990-N filing",
+  "description": "Prepare a Form 990-N from IRS records, check it, review and pay on 990.tax, track IRS acceptance.",
+  "version": "1.0.0",
+  "websiteUrl": "https://990.tax/mcp",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://app.990.tax/mcp"
+    }
+  ]
+}

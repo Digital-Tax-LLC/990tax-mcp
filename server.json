@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "tax.990/nonprofit-lookup",
+  "title": "990.tax nonprofit lookup",
+  "description": "IRS records on US nonprofits: exempt status, revocations, Form 990 financials, due dates, stats.",
+  "version": "1.0.0",
+  "websiteUrl": "https://990.tax/mcp",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://990.tax/mcp"
+    }
+  ]
+}
