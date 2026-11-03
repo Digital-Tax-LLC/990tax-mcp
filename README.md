@@ -12,7 +12,7 @@ No tool on either server files a return, takes a payment, signs or deletes anyth
 ## Connect
 
 ### Claude (claude.ai, desktop, mobile)
-Settings → Connectors → **Add custom connector**. Name `990.tax`, URL `https://990.tax/mcp` (lookup) or `https://app.990.tax/mcp` (filing; Claude opens 990.tax to sign in).
+Customize → Connectors → **Add → Add custom connector**. Name `990.tax`, URL `https://990.tax/mcp` (lookup; Claude detects no sign-in) or `https://app.990.tax/mcp` (filing; Claude detects the sign-in and opens 990.tax).
 
 ### Claude Code
 ```bash
@@ -21,7 +21,7 @@ claude mcp add --transport http 990tax-filing https://app.990.tax/mcp
 ```
 
 ### ChatGPT
-Settings → Apps → Advanced settings → **Developer mode** → Create app → URL `https://990.tax/mcp`, authentication none. (For the filing server use `https://app.990.tax/mcp` with OAuth.)
+Plugins → **Add → Add custom MCP server** → URL `https://990.tax/mcp`, authentication **No authentication**, tick "I understand and want to continue", **Create as a plugin**, then type `@990.tax` in a chat. (For the filing server use `https://app.990.tax/mcp` with OAuth.)
 
 ### Gemini, Grok
 Gemini: through Google's connected apps when 990.tax is listed. Grok: Connectors → New Connector → Custom → URL.
