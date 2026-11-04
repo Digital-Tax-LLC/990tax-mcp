@@ -1,0 +1,116 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "990tax-nonprofit-lookup",
+  "version": "1.0.0",
+  "description": "Look up any US nonprofit's IRS record: exempt status, revocations, missing filings, Form 990 financials, due dates, statistics and IRS reject codes.",
+  "author": {
+    "name": "Digital Tax LLC",
+    "email": "team@990.tax",
+    "url": "https://990.tax"
+  },
+  "homepage": "https://990.tax/mcp",
+  "repository": "https://github.com/Digital-Tax-LLC/990tax-mcp",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "nonprofit",
+    "IRS",
+    "Form 990",
+    "990-N",
+    "tax-exempt",
+    "charity"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "990.tax",
+        "shortDescription": "IRS records on US nonprofits",
+        "longDescription": "990.tax connects your assistant to IRS public records on more than 1.9 million US tax-exempt organizations. You can search by name or EIN and see an organization's exempt status, whether the IRS automatically revoked its exemption, and which recent years have no return on file. You can also see revenue, expenses, assets and officer pay from e-filed Form 990 returns, and statistics and rankings by state and category. It answers which annual return applies (990-N, 990-EZ, 990 or 990-PF) and when it's due, including the weekend and holiday rules and the Form 8868 extension. It also explains IRS e-file reject codes and how to fix them. Every answer names its IRS source file and date and links the matching page on 990.tax. No account is needed, and every tool is read-only. 990.tax is run by Digital Tax LLC, an IRS-authorized e-file provider. It is a private company, not the IRS, and the answers are information, not tax advice.",
+        "developerName": "Digital Tax LLC",
+        "category": "Finance",
+        "capabilities": [
+          "Look up a nonprofit by name or EIN",
+          "Check exempt status, revocations and missing years",
+          "Find which Form 990 applies and when it's due",
+          "Show Form 990 financials and officer pay",
+          "Nonprofit statistics and rankings by state and category",
+          "Explain IRS e-file reject codes"
+        ],
+        "websiteURL": "https://990.tax/mcp",
+        "supportURL": "https://990.tax/support",
+        "privacyPolicyURL": "https://990.tax/privacy-policy",
+        "termsOfServiceURL": "https://990.tax/terms-of-service",
+        "defaultPrompt": [
+          "Is the Laramie Rotary Foundation in Wyoming still tax-exempt?",
+          "Which 990 does a PTO with $30,000 in receipts file, and when is it due?",
+          "Which Texas nonprofits pay their top executive the most?"
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png",
+        "screenshots": [
+          "./assets/screenshot-exempt-status.png",
+          "./assets/screenshot-due-date.png",
+          "./assets/screenshot-texas-stats.png"
+        ]
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Exempt status and missing years",
+              "prompt": "Is the Laramie Rotary Foundation in Wyoming still tax-exempt, and are any years missing from IRS records?",
+              "tools_triggered": "search_nonprofits, check_exempt_status, get_nonprofit_profile",
+              "expected_behavior": "Laramie Rotary Foundation Inc. (EIN 83-0276257) is active, not on the automatic revocation list, and all three most recent years are filed; links to the 990.tax profile."
+            },
+            {
+              "description": "Which form and due date",
+              "prompt": "Our PTO had about $30,000 in receipts with a June 30 year end. Which 990 do we file for tax year 2025 and when is it due?",
+              "tools_triggered": "which_990_form, get_filing_due_date",
+              "expected_behavior": "Form 990-N, due November 16, 2026 (November 15 is a Sunday); notes that the 990-N cannot be extended with Form 8868."
+            },
+            {
+              "description": "State statistics and pay ranking",
+              "prompt": "How many nonprofits in Texas file the 990-N, and which Texas nonprofits pay their top executive the most?",
+              "tools_triggered": "get_nonprofit_stats, get_top_nonprofits",
+              "expected_behavior": "Texas 990-N filer count from the IRS e-Postcard file and a top-10 compensation ranking from e-filed Form 990s, each with its source date and a 990.tax link."
+            },
+            {
+              "description": "Financial history",
+              "prompt": "Show five years of revenue and expenses for the American Red Cross.",
+              "tools_triggered": "search_nonprofits, get_nonprofit_profile",
+              "expected_behavior": "American National Red Cross (EIN 53-0196605): total revenue and expenses by fiscal year from e-filed Form 990 data, with the source named."
+            },
+            {
+              "description": "IRS reject code",
+              "prompt": "What does IRS reject code R0000-922-01 mean and how do we fix it?",
+              "tools_triggered": "explain_irs_reject_code",
+              "expected_behavior": "Explains the EIN and name-control mismatch, the common causes and the fix steps, and links the 990.tax reject-code page."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Individual return: out of scope",
+              "prompt": "File my personal Form 1040."
+            },
+            {
+              "description": "Unrelated request",
+              "prompt": "What's the weather in Denver?"
+            },
+            {
+              "description": "Bulk export not offered",
+              "prompt": "Give me every nonprofit in California as a spreadsheet."
+            }
+          ]
+        },
+        "demo_recording_url": "https://github.com/Digital-Tax-LLC/990tax-mcp/blob/main/media/990tax-chatgpt-demo.mp4",
+        "commerce": false,
+        "commerce_description": "This plugin is free and read-only. It does not sell products, link to checkout or process payments."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "Initial release: eight read-only tools over IRS public data on US tax-exempt organizations."
+      }
+    }
+  }
+}
