@@ -38,6 +38,19 @@ Gemini: through Google's connected apps when 990.tax is listed. Grok: Connectors
 { "servers": { "990tax": { "type": "http", "url": "https://990.tax/mcp" }, "990tax-filing": { "type": "http", "url": "https://app.990.tax/mcp" } } }
 ```
 
+### Hermes Agent
+```bash
+hermes plugins install 990tax
+hermes plugins enable 990tax
+```
+The plugin connects the lookup server and adds the two skills below. Every tool is read-only.
+
+### Agent skills (Claude Code, Codex, Cursor and others)
+```bash
+npx skills add Digital-Tax-LLC/990tax-mcp
+```
+Two skills tell the agent how to use the tools: [`nonprofit-lookup`](skills/nonprofit-lookup/SKILL.md) (exempt status, revocations, financials, pay, statistics) and [`form-990-filing`](skills/form-990-filing/SKILL.md) (which form, due date, reject codes, filing a 990-N).
+
 ## Tools
 
 **Nonprofit lookup** (`https://990.tax/mcp`), all read-only:

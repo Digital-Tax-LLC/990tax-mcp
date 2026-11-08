@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "990tax",
+  "version": "1.0.0",
+  "description": "IRS public records on 1.9 million+ US nonprofits through the free 990.tax MCP server: exempt status, revocations, missing filings, Form 990 financials and officer pay, which form to file and when it's due, statistics, rankings and IRS e-file reject codes.",
+  "author": {
+    "name": "Digital Tax LLC",
+    "email": "team@990.tax",
+    "url": "https://990.tax"
+  },
+  "homepage": "https://990.tax/mcp",
+  "repository": "https://github.com/Digital-Tax-LLC/990tax-mcp",
+  "license": "CC-BY-4.0",
+  "keywords": ["nonprofit", "irs", "form-990", "990-n", "tax-exempt", "charity", "mcp"],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "990tax": { "trust": "untrusted" }
+      }
+    }
+  }
+}
