@@ -8,7 +8,7 @@ description: Work out which annual IRS return a US nonprofit files (990-N e-Post
 Every tool named below comes from the free 990.tax MCP server, `https://990.tax/mcp` (Streamable HTTP, no
 sign-in, no API key, all tools read-only). If `which_990_form` is not available, add the server first:
 `claude mcp add --transport http 990tax https://990.tax/mcp` (Claude Code), `codex mcp add 990tax --url https://990.tax/mcp`
-(Codex), or point any other MCP client at the URL.
+(Codex), `gemini mcp add --transport http 990tax https://990.tax/mcp` (Gemini CLI), or point any other MCP client at the URL.
 
 ## Steps
 

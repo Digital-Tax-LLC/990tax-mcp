@@ -23,8 +23,23 @@ claude mcp add --transport http 990tax-filing https://app.990.tax/mcp
 ### ChatGPT
 Plugins → **Add → Add custom MCP server** → URL `https://990.tax/mcp`, authentication **No authentication**, tick "I understand and want to continue", **Create as a plugin**, then type `@990.tax` in a chat. (For the filing server use `https://app.990.tax/mcp` with OAuth.)
 
-### Gemini, Grok
-Gemini: through Google's connected apps when 990.tax is listed. Grok: Connectors → New Connector → Custom → URL.
+### Gemini app
+Settings → **Gemini Apps Developer Mode** (gemini.google.com/devmode) → **+ Create new** → MCP Server URL `https://990.tax/mcp`, then type `@990.tax` in a chat. 990.tax is applying to Google's Connected Apps catalog (Gemini and AI Mode in Search); listing details are in [`google-connected-apps/`](google-connected-apps/README.md).
+
+### Gemini CLI
+```bash
+gemini extensions install https://github.com/Digital-Tax-LLC/990tax-mcp
+```
+The extension ([`gemini-extension.json`](gemini-extension.json)) adds both servers and the two skills below. Sign in to the filing server with `/mcp auth 990tax-filing`. Or add the lookup server alone: `gemini mcp add --transport http 990tax https://990.tax/mcp`.
+
+### Antigravity
+```bash
+agy plugin install https://github.com/Digital-Tax-LLC/990tax-mcp
+```
+The plugin ([`.antigravity-plugin/plugin.json`](.antigravity-plugin/plugin.json), [`mcp_config.json`](mcp_config.json)) connects the lookup server and adds the two skills. Every tool is read-only.
+
+### Grok
+Connectors → New Connector → Custom → URL.
 
 ### Cursor
 `~/.cursor/mcp.json` — see [`.mcp.json`](.mcp.json):

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "990tax",
+  "displayName": "990.tax",
+  "version": "1.0.0",
+  "description": "IRS records on 1.9 million+ US nonprofits: exempt status, revocations, Form 990 financials and pay, which 990 to file, due dates, reject codes.",
+  "logo": "logo-512.png",
+  "suggestedPrompts": [
+    "Is the Laramie Rotary Foundation in Wyoming still tax-exempt, and are any years missing from IRS records?",
+    "Our PTO had about $30,000 in receipts with a June 30 year end. Which 990 do we file for tax year 2025 and when is it due?",
+    "What does IRS reject code R0000-922-01 mean and how do we fix it?"
+  ],
+  "author": {
+    "name": "Digital Tax LLC",
+    "email": "team@990.tax",
+    "url": "https://990.tax"
+  },
+  "homepage": "https://990.tax/mcp",
+  "repository": "https://github.com/Digital-Tax-LLC/990tax-mcp",
+  "license": "CC-BY-4.0",
+  "keywords": ["nonprofit", "irs", "form-990", "990-n", "tax-exempt", "charity", "mcp"]
+}
