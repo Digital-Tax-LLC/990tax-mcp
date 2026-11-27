@@ -1,0 +1,16 @@
+{
+  "name": "990tax",
+  "version": "1.0.0",
+  "description": "IRS records on 1.9 million+ US nonprofits (exempt status, revocations, Form 990 financials, due dates, reject codes) and Form 990-N drafting from 990.tax.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "990tax": {
+      "httpUrl": "https://990.tax/mcp",
+      "description": "990.tax nonprofit lookup: free, no sign-in, every tool read-only"
+    },
+    "990tax-filing": {
+      "httpUrl": "https://app.990.tax/mcp",
+      "description": "990.tax Form 990-N filing: sign in to your 990.tax account with /mcp auth 990tax-filing"
+    }
+  }
+}
